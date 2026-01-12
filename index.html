@@ -205,11 +205,11 @@
             };
 
             return (
-                <div className="relative min-h-screen">
+                <div className="flex flex-col lg:flex-row relative min-h-screen">
                     {/* Mobile Header */}
                     <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-black border-b border-gray-800">
                         <div className="flex items-center justify-between p-4">
-                            <button 
+                            <button
                                 onClick={() => setNavOpen(!navOpen)}
                                 className="p-2 rounded-lg bg-gray-900 active:bg-gray-800"
                                 aria-label="Toggle menu"
@@ -243,7 +243,7 @@
 
                     {/* Mobile Overlay */}
                     {navOpen && (
-                        <div 
+                        <div
                             className="lg:hidden fixed inset-0 z-40 mobile-overlay"
                             onClick={() => setNavOpen(false)}
                         />
@@ -251,7 +251,7 @@
 
                     {/* Sidebar */}
                     <div className={`
-                        fixed lg:static inset-y-0 left-0 z-50
+                        fixed lg:static lg:w-80 inset-y-0 left-0 z-50 top-auto lg:top-0
                         w-80 bg-black border-r border-gray-800 flex flex-col
                         mobile-nav-transition
                         ${navOpen ? 'mobile-nav-open' : 'mobile-nav-closed'}
@@ -333,7 +333,7 @@
                     </div>
 
                     {/* Main Content */}
-                    <div className="lg:ml-80 min-h-screen">
+                    <div className="flex-1 min-h-screen">
                         <div className="max-w-4xl mx-auto px-4 py-6 lg:p-12 mt-32 lg:mt-0">
                             {currentSection === 'intro' && <IntroSection />}
                             {currentSection === 'charlie' && <CharlieSection expandedExample={expandedExample} setExpandedExample={setExpandedExample} />}
